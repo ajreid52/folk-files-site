@@ -2,6 +2,8 @@
 
 **Stories from the Alvean Federation**, an urban fantasy collection by AJ Reid.
 
+[AJ Reid author website](https://deyvosbooks.com/author-2/)
+
 This public repository contains the Astro website and only
 publication-approved story and reference content. Draft manuscripts,
 worldbuilding notes, reviews, and editorial planning are maintained in a

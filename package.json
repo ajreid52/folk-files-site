@@ -8,7 +8,11 @@
   "scripts": {
     "dev": "astro dev",
     "check": "astro check",
+    "validate:content": "node scripts/validate-content.mjs",
+    "test:validation": "node scripts/test-content-validator.mjs",
     "build": "astro build",
+    "validate:public": "node scripts/validate-public-build.mjs",
+    "verify": "npm run check && npm run validate:content && npm run test:validation && npm run build && npm run validate:public",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -19,6 +23,8 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
-    "typescript": "^6.0.3"
+    "gray-matter": "^4.0.3",
+    "typescript": "^6.0.3",
+    "yaml": "^2.9.0"
   }
 }
