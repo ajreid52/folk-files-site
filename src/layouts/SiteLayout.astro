@@ -1,0 +1,42 @@
+---
+import FederalSeal from '../components/site/FederalSeal.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const asset = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/png" href={asset('/branding/alvean-federation-seal.png')} />
+    <title>{title} — Stories from the Alvean Federation</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="wordmark" href={import.meta.env.BASE_URL} aria-label="Folk Files home">
+        <FederalSeal />
+        <span>Folk Files</span>
+      </a>
+      <p>By <a href="#" aria-label="AJ Reid author website link pending">AJ Reid</a></p>
+    </header>
+    <slot />
+    <footer class="site-footer">
+      <p>© AJ Reid. Fiction and original setting material: all rights reserved.</p>
+      <p>Stories from the Alvean Federation</p>
+    </footer>
+  </body>
+</html>
